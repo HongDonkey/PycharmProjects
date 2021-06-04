@@ -1,26 +1,10 @@
 # -*- coding: utf-8 -*-
-import FinanceDataReader as web
-from datetime import date, timedelta
-import matplotlib.pyplot as plt
-import datetime
-import earningsRate
-import numpy as np
-from codeList import queryCodeList
-from matplotlib import font_manager, rc
-import matplotlib.ticker as ticker
 
-from mplfinance.original_flavor import candlestick2_ohlc # pip install https://github.com/matplotlib/mpl_finance/archive/master.zip #pip install --upgrade mplfinance
 
-from scipy import stats # line regression
-from chart_studio.plotly import plot, iplot #  conda install -c plotly chart-studio
-# import plotly.graph_objects as go
-import plotly.express as px #  conda install -c plotly plotly-orca
-import os
-
-ma1 = 5
-ma2 = 20
-duration = 720
-last_period = 50
+ma1 = 5 # 5일 기준의 이동평균선
+ma2 = 20 # 20일 기준의 이동평균선
+duration = 720 # 기간
+last_period = 50 # 오늘 날짜 기준 최근 50일
 set_period = 12 # 오늘날짜 기준 12일 전부터의 주식데이터 접근
 '''
 # line chart test
@@ -35,13 +19,18 @@ qc = queryCodeList()
 
 
 def getClosePrice(code, startDay, EndDay):
-    today = date.today()
+    today = date.today() # 오늘 날짜
     if startDay >= today or EndDay >= today or startDay > EndDay:
         print("date Error #1")
+        # 시작일이 오늘보다 크거나 종료일이 오늘보다 크거나 시작일이 종료일보다 크면 date Error #1
         return None
+        # 아무것도 리턴하지 않음
     if code is None:
+        # 코드의 인자가 비었다면
         print("code Error #1")
+        # code Error #1
         return None
+        # 아무것도 리턴하지 않음
     df = web.DataReader(code, startDay, EndDay)
     #print(df.head())
     return df
