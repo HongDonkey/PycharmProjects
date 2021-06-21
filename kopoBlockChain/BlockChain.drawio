@@ -1,1 +1,16 @@
-<mxfile host="app.diagrams.net" modified="2021-06-21T10:57:31.331Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" version="14.7.8" etag="X7vUy9GNbqsGwgcixe3H" type="github"><diagram id="ZawBvJ3uUS1KWoCtV5v_">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-06-21T11:52:48.571Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" etag="QbzlMy57udbQiWo_APC9" version="14.7.8" type="github">
+  <diagram id="ZawBvJ3uUS1KWoCtV5v_" name="Page-1">
+    <mxGraphModel dx="782" dy="1153" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WwcDMoaWUqZJNT8HYI9G-1" value="mineNewBlock(난이도, 블록체인.csv 파일):&lt;br&gt;&lt;br&gt;readBlockchain(csv파일을 읽기전용으로 가져옴)&lt;br&gt;importedBlockChain = [] 빈배열&lt;br&gt;블록체인 csv파일(인덱스, 이전 해쉬값, 시간, 데이터, 현재해쉬값, 증명횟수)의 값을&lt;br&gt;importedBlockChain 배열에 추가&lt;br&gt;&lt;br&gt;getTxData&lt;br&gt;strTxData = 빈 문자열&lt;br&gt;importedTx =readTx함수를 써서&amp;nbsp; 누가 누구에게 얼마를 줬는지에 대한 값이 담긴 txData.csv 파일을 읽기전용으로 읽어옴&lt;br&gt;if (txData가 한줄이라도 존재한다면)&lt;br&gt;txData의 줄수만큼 반복하며 uuid(해쉬값) + 보낸 사람 + 보낸 액수 + 받는 사람의 내용을&lt;br&gt;strTxData 값에 집어넣음&lt;br&gt;&lt;br&gt;readTx&lt;br&gt;importedTx = [] 빈배열&lt;br&gt;txData.csv 파일을 읽기전용으로 읽어옴&lt;br&gt;첫 행에 값이 없으면 commitYN, 보낸사람, 보낸 액수, 받는 사람, uuid(해쉬값)을&lt;br&gt;importedTx 에 넣음&lt;br&gt;&lt;br&gt;&lt;br&gt;newBlockAttempt = generateNextBlock&lt;br&gt;&lt;br&gt;generateNextBlock(blockchain, blockData, timestamp, proof)&lt;br&gt;previousBlock = 가장 마지막 블록체인 값&lt;br&gt;nextindex = 가장 마지막 블록체인 값 + 1&lt;br&gt;nextTimestamp = 현재 시간&lt;br&gt;nextHash = calculateHash(nextIndex, previousBlock의 현재 해쉬값, 현재 시각, blockData인자, 증명횟수)&lt;br&gt;블록(nextHash값)을 리턴&lt;br&gt;&lt;br&gt;calculateHash(블록)&lt;br&gt;블록을 인자로 받으면 해당 블록의 인덱스, 이전 해쉬값, 시간 값, 내용, 증명횟수를 계산하는 함수&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="370" width="730" height="630" as="geometry" />
+        </mxCell>
+        <mxCell id="WwcDMoaWUqZJNT8HYI9G-2" value="mineNewBlock 함수를 호출하는 mine 함수 쓸모없음" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="370" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
