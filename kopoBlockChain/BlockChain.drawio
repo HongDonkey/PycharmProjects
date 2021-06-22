@@ -1,14 +1,70 @@
-<mxfile host="app.diagrams.net" modified="2021-06-22T02:30:06.516Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" etag="cQQkynCXuRtYmGio2EWd" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-22T11:42:53.979Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" etag="WKoviDtNnqt9-Rer9Exv" version="14.8.0" type="github">
   <diagram id="ZawBvJ3uUS1KWoCtV5v_" name="Page-1">
-    <mxGraphModel dx="805" dy="1153" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2436" dy="1096" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="WwcDMoaWUqZJNT8HYI9G-1" value="mineNewBlock(난이도, 블록체인.csv 파일):&lt;br&gt;&lt;br&gt;readBlockchain(csv파일을 읽기전용으로 가져옴)&lt;br&gt;importedBlockChain = [] 빈배열&lt;br&gt;블록체인 csv파일(인덱스, 이전 해쉬값, 시간, 데이터, 현재해쉬값, 증명횟수)의 값을&lt;br&gt;importedBlockChain 배열에 추가&lt;br&gt;&lt;br&gt;getTxData&lt;br&gt;strTxData = 빈 문자열&lt;br&gt;importedTx =readTx함수를 써서&amp;nbsp; 누가 누구에게 얼마를 줬는지에 대한 값이 담긴 txData.csv 파일을 읽기전용으로 읽어옴&lt;br&gt;if (txData가 한줄이라도 존재한다면)&lt;br&gt;txData의 줄수만큼 반복하며 uuid(해쉬값) + 보낸 사람 + 보낸 액수 + 받는 사람의 내용을&lt;br&gt;strTxData 값에 집어넣음&lt;br&gt;&lt;br&gt;readTx&lt;br&gt;importedTx = [] 빈배열&lt;br&gt;txData.csv 파일을 읽기전용으로 읽어옴&lt;br&gt;첫 행에 값이 없으면 commitYN, 보낸사람, 보낸 액수, 받는 사람, uuid(해쉬값)을&lt;br&gt;importedTx 에 넣음&lt;br&gt;&lt;br&gt;&lt;br&gt;newBlockAttempt = generateNextBlock&lt;br&gt;&lt;br&gt;generateNextBlock(blockchain, blockData, timestamp, proof)&lt;br&gt;previousBlock = 가장 마지막 블록체인 값&lt;br&gt;nextindex = 가장 마지막 블록체인 값 + 1&lt;br&gt;nextTimestamp = 현재 시간&lt;br&gt;nextHash = calculateHash(nextIndex, previousBlock의 현재 해쉬값, 현재 시각, blockData인자, 증명횟수)&lt;br&gt;블록(nextHash값)을 리턴&lt;br&gt;&lt;br&gt;calculateHash(인덱스, 이전 해쉬값, 시간 값, 내용, 증명횟수)&lt;br&gt;블록을 인자로 받으면 해당 블록의 인덱스, 이전 해쉬값, 시간 값, 내용, 증명횟수를 문자열 인자로 받아 나열하고&lt;br&gt;나열한 값을 해쉬한 문자열을 구함&lt;br&gt;&lt;br&gt;writeBolckchain(블록체인):&lt;br&gt;blockchainList = [] 빈배열&lt;br&gt;블록 단위로 인자로 받은 만큼 반복하는 반복문:&lt;br&gt;블록의 인덱스, 블록의 이전 해쉬값, 블록의 시간 값, 블록의 데이터, 블록의 현재 해쉬값, 블록의 증명횟수를 배열로 받아 blockList에 담음&lt;br&gt;blockList를 blockchainList&amp;nbsp;=[] 배열에 넣음&lt;br&gt;블록체인.csv 파일을 읽기전용으로 열고 blockReader 변수에 담음&lt;br&gt;&lt;br&gt;블록체인.csv파일의 줄수 단위로 blockReader의 총 줄수만큼 반복하는 반복문:&lt;br&gt;if 블록체인.csv파일의 총 줄수가 마지막 줄과 같다면&lt;br&gt;마지막 줄을 가져와서 lastBlock 변수에 담음&lt;br&gt;&lt;br&gt;만약에 마지막 블록의 인덱스 값 +1 과 하나의 블록체인의 구성 인자 갯수인 6개가 다르다면&lt;br&gt;&quot;index sequence mismatch&quot;를 출력&lt;br&gt;마지막 블록의 인덱스 값과 블록체인의 구성 인자 갯수인 6개가 같다면&lt;br&gt;&quot;db(csv) has already beEn updated&quot; 를 출력&lt;br&gt;&lt;br&gt;blockchainList 가 빈 배열이 아니라면 블록체인 CSV파일을 수정가능한 형태로 읽어오고&lt;br&gt;CSV파일 마지막 줄에 blockList를 작성하고 blockchainList를 비움, &quot;write ok&quot; 출력, 반복문 종료&lt;br&gt;&lt;br&gt;updateTx(블록데이터):&lt;br&gt;정규표현식을 phrase변수에 담음&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="60" y="370" width="730" height="790" as="geometry" />
+          <mxGeometry x="-1310" y="350" width="730" height="790" as="geometry" />
         </mxCell>
         <mxCell id="WwcDMoaWUqZJNT8HYI9G-2" value="mineNewBlock 함수를 호출하는 mine 함수 쓸모없음" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="50" y="70" width="370" height="200" as="geometry" />
+          <mxGeometry x="-1310" y="60" width="370" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6jqxfhGO3ziuB4b0KIC6-1" target="6jqxfhGO3ziuB4b0KIC6-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-60" y="450" />
+              <mxPoint x="-60" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-1" value="mineNewBlock" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-450" y="420" width="520" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6jqxfhGO3ziuB4b0KIC6-2" target="6jqxfhGO3ziuB4b0KIC6-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-2" value="readBlockChain" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="665" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-4" value="blockchain.csv 파일을 요청함" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-7" value="mineNewBlock에 요청에 응할&amp;nbsp;&lt;br&gt;blockchain.csv 파일이 비어있다면&lt;br&gt;generateGensisBlock 함수 호출" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="250" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="6jqxfhGO3ziuB4b0KIC6-9" target="6jqxfhGO3ziuB4b0KIC6-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-9" value="generateGenesisBlock" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="130" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-11" value="blockchain csv 파일을 읽어와 각각의 인자들을 importedBlockchain 배열에 담아 응답함&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="680" width="600" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-14" value="" style="endArrow=classic;html=1;entryX=0.663;entryY=0.991;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="6jqxfhGO3ziuB4b0KIC6-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="665" as="sourcePoint" />
+            <mxPoint x="1270" y="615" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-15" value="calculateHash" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1840" y="130" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-20" value="time.stamp(현재 시간) 값을 전달" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1424" y="150" width="230" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-21" value="tempHash 변수를 통해 (0, &#39;0&#39;, timestamp, &quot;Genesis Block&quot;, 0)을 해쉬한 값을 전달" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="170" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-23" value="" style="endArrow=classic;html=1;entryX=0.875;entryY=-0.009;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.833;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="6jqxfhGO3ziuB4b0KIC6-9" target="6jqxfhGO3ziuB4b0KIC6-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1280" y="350" as="sourcePoint" />
+            <mxPoint x="1310" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6jqxfhGO3ziuB4b0KIC6-24" value="Text" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="330" width="290" height="300" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
